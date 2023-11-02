@@ -5,9 +5,16 @@
 #include <string.h>
 
 int main(){
-    char number[] = {};
+    char number[100000] = {};
     scanf("%s\n",number);
-    if(strrchr(number, number[0]) == strlen(number)){
+    int check = 1;
+    for (int i = 0; i < strlen(number); ++i) {
+        if(number[i] != number[0]){
+            check = 0;
+            break;
+        }
+    }
+    if(check){
         printf("YES");
     }else{
         printf("NO");
