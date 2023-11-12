@@ -4,6 +4,21 @@
 #include <stdio.h>
 
 // Tips 一坨大便 没有任何参考价值
+
+int check(int handle_index,int handle[100000],int hearts[100000],int result){
+  for (int i = handle_index - 1; i >= 0; --i) {
+    if (handle[i] == 1) {
+      result += hearts[i];
+    } else if (handle[i] == 2) {
+      result += (i+1) * hearts[i];
+    } else if (handle[i] == 3) {
+      break;
+    } else if (handle[i] == 4) {
+      i--;
+    }
+  }
+  return result;
+}
 int main() {
   int n;
   scanf("%d\n", &n);
@@ -21,17 +36,7 @@ int main() {
   while (scanf("%d", &input) != EOF) {
     if (need_start_handle) {
       // handler
-      for (int i = handle_index - 1; i >= 0; --i) {
-        if (handle[i] == 1) {
-          result += hearts[i];
-        } else if (handle[i] == 2) {
-          result += (i+1) * hearts[i];
-        } else if (handle[i] == 3) {
-          break;
-        } else if (handle[i] == 4) {
-          i--;
-        }
-      }
+      result = check(handle_index,handle,hearts,result);
       need_start_handle = 0;
       handle_index = 0;
     }
@@ -60,17 +65,8 @@ int main() {
     }
   }
   // 结束了但是最后一轮貌似话没有处理呢
-  for (int i = handle_index - 1; i >= 0; --i) {
-    if (handle[i] == 1) {
-      result += hearts[i];
-    } else if (handle[i] == 2) {
-      result += (i+1) * hearts[i];
-    } else if (handle[i] == 3) {
-      break;
-    } else if (handle[i] == 4) {
-      i--;
-    }
-  }
+  result = check(handle_index,handle,hearts,result);
+
   printf("%d", result);
   return 0;
 }

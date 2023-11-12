@@ -6,15 +6,16 @@
 int main(){
   int l,r;
   scanf("%d %d",&l,&r);
-  int i = 1;
   int count = 0;
   for (int j = l; j <= r; ++j) {
-    if(j > i*10){
-      i*=10;
-    }
-    if(j%i == 2){
-      count++;
+    int tmp = j;
+    while (tmp){
+      if(tmp%10 == 2){
+        count++;
+      }
+      tmp/=10;
     }
   }
+  printf("%d",count);
   return 0;
 }

@@ -7,29 +7,18 @@
 int main() {
   double input;
   scanf("%lf\n", &input);
-  long long init = 1;
-  long long all = 1;
-  while (1){
-    // 0.008
-    if(
-        // 4
-        // 0.004XXXXX
-        (fabs(((double)init / (double)all) * 100 - input) < 0.009 &&
-         fabs(((double)init / (double)all) * 100 - input) < 0.005) ||
-        // 5 0.01xxxx
-        (fabs(((double)init / (double)all) * 100 - input) >= 0.01 &&
-         fabs(((double)init / (double)all) * 100 - input) < 0.02 &&
-         fabs(((double)init / (double)all) * 100 - (input-0.01)) >= 0.005)){
-      break;
-    }else{
-      if (((double)init / (double)all) * 100 < input) {
-        init++;
-      } else {
-        all++;
+  int stop = 0;
+  for (long long i = 1; i < 1000000; ++i) {
+    if(stop) break;
+    for (long long j = 1; j < i; ++j) {
+      double c = 1.0*j/i-input*0.01;
+        if(fabs(c) < 0.00005){ // 俩位小数说的是转换为百分数后的俩位小数
+//        printf("%lld",j);
+        printf("%lld",i);
+        stop = 1;
+        break;
       }
     }
   }
-  printf("%lld\n", init);
-  printf("%lld", all);
   return 0;
 }
