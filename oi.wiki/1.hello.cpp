@@ -1,22 +1,14 @@
-#include <stdio.h>
 #include <iostream>
-//#include <cstdio>
 
 using namespace std;
 
-int main(){
-	printf("Hello World \n");
-	cout << "I Love nowcoder\n";
-	
-	int x,y;
-	
-	// cpp
-//	std::cin >> x >> y;
-//	std::cout << y << std::endl << x;
-	
-	// c
-	scanf("%d%d",&x,&y);
-	printf("%d|%d",y,x);
-	
-	return 0;
+int main() {
+  cout << "I Love nowcoder\n";
+  int x, y;
+
+  // cpp
+  cin >> x >> y;
+  cout << y << endl << x;
+
+  return 0;
 }

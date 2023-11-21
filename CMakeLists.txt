@@ -12,6 +12,5 @@ endforeach ()
 file (GLOB_RECURSE files *.c)
 foreach (file ${files})
     string(REGEX REPLACE ".+/(.+)\\..*" "\\1" soft ${file})
-    add_executable (${soft} ${file}
-            uit/1117/1117_e.c)
+    add_executable (${soft} ${file})
 endforeach ()
