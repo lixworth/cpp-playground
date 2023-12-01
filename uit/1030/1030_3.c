@@ -8,7 +8,7 @@ int main(){
     int number[] = {5,7,8,9,1};
 
     for (int i = 0; i < 5; i++) {
-        for (int j = 0; j < 4; j++) {
+        for (int j = 0; j < 4-i; j++) {
             if(number[j] > number[j+1]){ // 升序
                 int tmp = number[j];
                 number[j] = number[j+1];

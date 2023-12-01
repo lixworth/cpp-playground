@@ -11,11 +11,10 @@
 4.年份数据范围在公元后
 5.一个防报错功能，用户输出错误信息时能够提醒用户并重新输入
 6.可以自行添加细节*/
-
-
 #include <cstdio>
 #include <ctime>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -29,6 +28,8 @@ using namespace std;
 #define ERROR (std::cout << RED)
 #define SUCCESS (std::cout << GREEN)
 #define LOG_CLEAR (std::cout << "\033c")
+
+vector<string> stringStream;
 
 void menu() {
   LOG_CLEAR;
@@ -87,6 +88,8 @@ void query_year() {
 
   int input;
   cin >> input;
+  int stream_index = 0;
+  string cache;
 
   switch (input) {
   case 1:
@@ -110,8 +113,21 @@ void query_year() {
     }
     break;
   case 2:
+    LOG_CLEAR;
+    for (int i = 1; i <= 12; ++i) {
+      cache += RED + to_string(i) + "月" + "\t\t\t\t\t\t" + to_string(13-i) +"月";
+      stringStream.push_back(cache);
+      cache.clear();
+      cache += RESET + "周日\t周一\t周二\t周三\t周四\t周五\t周六" +"\t\t" + "周日\t周一\t周二\t周三\t周四\t周五\t周六";
+      stringStream.push_back(cache);
+      cache.clear();
+    }
+    for (int i = 0; i < stringStream.size(); ++i) {
+      cout << stringStream[i] << endl;
+    }
     break;
   default:
+    cout << 123 << endl;
     break;
   }
 }
@@ -147,11 +163,19 @@ void query_week() {
     break;
   }
 }
-void query_leap_year() {}
+void query_leap_year() {
+  int year;
+  cin >> year;
+
+  if(check_leap_year(year)){
+    SUCCESS << "闰年" << endl;
+  }else{
+    SUCCESS << "平年" << endl;
+  }
+}
 
 
 int main() {
-
   int run = 1;
   while (run) {
     menu();
@@ -185,3 +209,4 @@ int main() {
   }
   return 0;
 }
+
