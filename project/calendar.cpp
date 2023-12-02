@@ -43,16 +43,17 @@ void menu() {
   WARN << "2.查询对应日期的星期" << endl;
   WARN << "3.查询对应年份是否为闰年" << endl;
   WARN << "4.退出" << endl;
+  ERROR << "Version: 能用就行" << endl;
 
   INFO << endl << "请输入菜单编号(1-4): ";
 }
-// 1 星期1 7 星期日
 int get_week(int y,int m,int d) {
   if (m == 1 || m == 2) {
     m += 12;
     y--;
   }
-  return (d + 2 * m + 3 * (m + 1) / 5 + y + y / 4 - y / 100 + y / 400) % 7;
+  return ((d + 2 * m + 3 * (m + 1) / 5 + y + y / 4 - y / 100 + y / 400) % 7) +
+         1;
 }
 
 int check_leap_year(int year) {
@@ -88,24 +89,27 @@ void query_year() {
 
   int input;
   cin >> input;
-  int stream_index = 0;
   string cache;
+
+  string echo_month[100][100] = {};
+  int echo_month_line = 0;
 
   switch (input) {
   case 1:
+    LOG_CLEAR;
+    SUCCESS << "====================== " << query  << "年 ======================" <<endl;
     for (int i = 1; i <= 12; ++i) {
       cout << RED << i << "月" << endl;
       cout << RESET << "周日\t周一\t周二\t周三\t周四\t周五\t周六" << endl;
-      int start = get_week(input, i, 1);
-      for (int j = 0; j < start; ++j) {
-        cout << "\t";
+      int start = get_week(query, i, 1);
+      if(start < 7){
+        for (int j = 0; j < start; ++j) {
+          cout << "\t";
+        }
       }
-      int count = start;
-      for (int j = 1; j <= get_month_days_count(input, i); ++j) {
+      for (int j = 1; j <= get_month_days_count(query, i); ++j) {
         printf("%02d\t", j);
-        count++;
-        if (count == 7) {
-          count = 0;
+        if (get_week(query,i,j) == 6) {
           printf("\n");
         }
       }
@@ -114,17 +118,86 @@ void query_year() {
     break;
   case 2:
     LOG_CLEAR;
-    for (int i = 1; i <= 12; ++i) {
-      cache += RED + to_string(i) + "月" + "\t\t\t\t\t\t" + to_string(13-i) +"月";
+    SUCCESS << "====================== " << query  << "年 ======================" <<endl;
+    for (int i = 1; i < 12; i=i+2) {
+      cache +=
+          RED + to_string(i) + "月" + "\t\t\t\t\t\t\t\t" + to_string(i+1) + "月";
       stringStream.push_back(cache);
       cache.clear();
-      cache += RESET + "周日\t周一\t周二\t周三\t周四\t周五\t周六" +"\t\t" + "周日\t周一\t周二\t周三\t周四\t周五\t周六";
+      cache = cache + RESET + "周日\t周一\t周二\t周三\t周四\t周五\t周六" +
+              "\t\t周日\t周一\t周二\t周三\t周四\t周五\t周六";
       stringStream.push_back(cache);
       cache.clear();
+      int start = get_week(query, i, 1);
+      if(start < 7){
+        for (int j = 0; j < start; ++j) {
+          cache+="\t";
+        }
+      }
+      echo_month_line = 0;
+      for (int j = 1; j <= get_month_days_count(query,i); ++j) {
+        if(j<10) {
+          cache += to_string(0) + to_string(j) + "\t";
+        }else{
+          cache += to_string(j) + "\t";
+        }
+        if (get_week(query,i,j) == 6) {
+          echo_month[i][echo_month_line] = cache;
+          cache.clear();
+          echo_month_line++;
+        }
+        if(j == get_month_days_count(query,i)){
+          int week = get_week(query,i,j);
+          week = week == 7 ? 0 : week;
+          for (int k = 0; k < 7-week; ++k) {
+            if(k == 7-week-1){
+              cache +" ";
+              continue;
+            }
+            cache += "  \t";
+          }
+          echo_month[i][echo_month_line] = cache;
+          cache.clear();
+        }
+      }
+      echo_month_line = 0;
+      start = get_week(query, i+1, 1);
+      if(start < 7){
+        for (int j = 0; j < start; ++j) {
+          cache+="\t";
+        }
+      }
+      for (int j = 1; j <= get_month_days_count(query,i+1); ++j) {
+        if(j<10) {
+          cache += to_string(0) + to_string(j) + "\t";
+        }else{
+          cache += to_string(j) + "\t";
+        }
+        if (get_week(query,i+1,j) == 6 || j == get_month_days_count(query,i+1)) {
+          echo_month[i+1][echo_month_line] = cache;
+          cache.clear();
+          echo_month_line++;
+        }
+      }
+      cache.clear();
+
+      for (int j = 0; j < 6; ++j) {
+        if(echo_month[i][j] == ""){
+          cache = "  \t  \t  \t  \t  \t  \t  \t\t" + echo_month[i+1][j];
+        }else{
+          cache = echo_month[i][j] + "\t" + echo_month[i+1][j];
+        }
+
+        stringStream.push_back(cache);
+
+        cache.clear();
+      }
+      stringStream.push_back("\n");
     }
-    for (int i = 0; i < stringStream.size(); ++i) {
+    for (unsigned int i = 0; i < stringStream.size(); ++i) {
       cout << stringStream[i] << endl;
     }
+    stringStream.clear();
     break;
   default:
     cout << 123 << endl;
@@ -137,6 +210,7 @@ void query_week() {
   cin >> y >> m >> d;
 
   int week = get_week(y, m, d);
+
   switch (week) {
   case 1:
     SUCCESS << "周一" << endl;
@@ -156,7 +230,7 @@ void query_week() {
   case 6:
     SUCCESS << "周六" << endl;
     break;
-  case 0:
+  case 7:
     SUCCESS << "周日" << endl;
     break;
   default:
@@ -164,6 +238,7 @@ void query_week() {
   }
 }
 void query_leap_year() {
+  cout << "请输入要查询的年份:" << endl;
   int year;
   cin >> year;
 
