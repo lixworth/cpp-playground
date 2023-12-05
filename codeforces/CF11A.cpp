@@ -13,6 +13,7 @@
 using namespace std;
 
 int b[2000];
+int a[2000];
 int main() {
   int n,d;
   cin >> n >> d;
@@ -21,10 +22,9 @@ int main() {
     cin >> b[i];
   }
 
-  for (int i = 1; i < n; ++i) {
-    while (b[i] <= b[i-1]){
-      b[i] += d;
-      count++;
+  for (int i = 0; i < n-1; ++i) {
+    if(b[i] < b[i+1]){
+      (b[i+1]-b[i])/d
     }
   }
   cout << count;
