@@ -22,9 +22,13 @@ int main() {
     cin >> b[i];
   }
 
-  for (int i = 0; i < n-1; ++i) {
-    if(b[i] < b[i+1]){
-      (b[i+1]-b[i])/d
+  for (int i = 1; i < n; ++i) {
+    int e = (b[i]-b[i-1])/d;
+    count += e;
+    b[i] += e*d;
+    if((b[i]-b[i-1])%d != 0){
+      count += 1;
+      b[i] += d;
     }
   }
   cout << count;
