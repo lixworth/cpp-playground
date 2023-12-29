@@ -5,5 +5,5 @@
 #include <stdio.h>
 
 int main(){
-    printf("%s","123");
+    printf("%s","123ss");
 }
