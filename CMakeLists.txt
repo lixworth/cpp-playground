@@ -10,7 +10,7 @@ foreach(SOURCE ${SOURCE_FILES})
     get_filename_component(DIR_PATH ${SOURCE} DIRECTORY)
 
     set(TARGET_NAME "${DIR_PATH}_${FILE_NAME}")
-    string(REPLACE ${CMAKE_CURRENT_SOURCE_DIR} "" TARGET_NAME ${TARGET_NAME})
+    string(REPLACE "${CMAKE_CURRENT_SOURCE_DIR}/" "" TARGET_NAME ${TARGET_NAME})
     string(REPLACE "/" "_" TARGET_NAME ${TARGET_NAME})
 
     add_executable(${TARGET_NAME} ${SOURCE})
