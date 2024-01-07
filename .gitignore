@@ -3,3 +3,8 @@
 cmake-build-debug/
 *.out
 *.s
+build/
+*/.cph/
+*/.DS_Store
+.DS_Store
+*.bin

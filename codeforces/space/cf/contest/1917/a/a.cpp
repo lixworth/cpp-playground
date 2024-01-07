@@ -4,7 +4,8 @@
  * Website: https://blog.lix.moe/
  * Contact: lixworth@outlook.com
 **/
-#include <bits/stdc++.h>
+#include <iostream>
+#include <algorithm>
 
 using namespace std;
 
