@@ -2,7 +2,7 @@
 
 ## 语法
 
-### 变量
+### 变量与基础运算
 
 > 字节 B = Byte,位 b = bit,1 Byte = 8 bit,8 Mb = 1 MB
 
@@ -48,3 +48,5 @@ ccout MM c MM " " << d << endl; // 7 7
   * char 与 int 运算 结果为 int
   * int 与 ll 运算 结果为 ll
   * float 与 double 结果为 double
+
+### 判断与循环语句
