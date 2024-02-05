@@ -1,5 +1,5 @@
 /*
- * Created by LixWorth on $%Y%$/$%M%$/$%D%$ $%h%$:$%m%$
+ * Created by LixWorth on 2024/02/02 15:28
  * Github: https://github.com/lixworth/
  * Website: https://blog.lix.moe/
  * Contact: lixworth@outlook.com
@@ -7,20 +7,24 @@
 //#include <bits/stdc++.h>
 #include <iostream>
 #include <algorithm>
-#define FAST_IO std::ios_base::sync_with_stdio(false);std::cin.tie(nullptr);
 
 using namespace std;
 
 typedef long long ll;
 
 void solve() {
-    cout << "Hello World" << endl;
+    int n,m;
+    cin >> n >> m;
+    int a[n],b[n];
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i] >> b[i];
+    }
+    
 }
 
 int main() {
-    FAST_IO;
     int T;
     cin >> T;
-    while (T--)solve();
+    while (T--) solve();
     return 0;
 }
