@@ -1,5 +1,5 @@
 /*
- * Created by LixWorth on $%Y%$/$%M%$/$%D%$ $%h%$:$%m%$
+ * Created by LixWorth on 2024/02/18 20:05
  * Github: https://github.com/lixworth/
  * Website: https://blog.lix.moe/
  * Contact: lixworth@outlook.com
@@ -14,7 +14,20 @@ using namespace std;
 typedef long long ll;
 
 void solve() {
-    cout << "Hello World" << endl;
+    int t;
+    string input;
+    cin >> t >> input;
+
+    int count = 0;
+    for (int i = 0; i < t; ++i) {
+        // . @ *
+        if(input[i] == '*' && input[i+1] == '*'){
+            break;
+        }
+        if(input[i] == '@') count++;
+    }
+
+    cout << count << endl;
 }
 
 int main() {

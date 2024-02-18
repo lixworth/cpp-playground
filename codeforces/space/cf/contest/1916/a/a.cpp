@@ -17,7 +17,7 @@ int main(){
         int n,k;
         cin >> n >> k;
         int map[5];
-        int result = 1;
+        ll result = 1;
         for (int i = 0; i < n; ++i) {
             cin >> map[i];
             result*=map[i];
