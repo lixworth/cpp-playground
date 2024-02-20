@@ -52,6 +52,7 @@ void solve() {
                     input[j][z-1] = cache[j-1];
                 }
             }
+
 //            for (int j = 0; j < n; ++j) {
 //                for (int k = 0; k < m; ++k) {
 //                    cout << input[j][k];
@@ -59,6 +60,7 @@ void solve() {
 //                cout << endl;
 //            }
 //            cout << "=======\n";
+
         }
     }
 
