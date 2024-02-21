@@ -28,7 +28,6 @@
   * `char j = 'a',k = 'b';`
   * long long 类型的常量 `long long l = 10000000000ll`; 赋值的时候，如果大于2^31-1，那么后面需要加上ll/LL
 
-* stdio format int: `%d`,float: `%f`,double: `%lf`,char: `%c`,long long: `%lld`
 * `%` 去除数的余数 与数学中去模区别在 其因前面数字存在负数，结果变为负数。
 * 后置++是先运行本条语句，再++；前置++是先++，再运行本条语句
 ```c++
@@ -49,4 +48,12 @@ ccout MM c MM " " << d << endl; // 7 7
   * int 与 ll 运算 结果为 ll
   * float 与 double 结果为 double
 
+* stdio format int: `%d`,float: `%f`,double: `%lf`,char: `%c`,long long: `%lld`
+  * 保留小数 `%.4lf` 不足的时候会在后方补0
+  * 整体最小数字宽度 `%2.3f` 不足的时候会在前方补空格 , `%-8.3f` 在后方补空格，`%08.3f` 在前方补0
+
+Tips:
+* 四舍五入尽量使用 double 类型
 ### 判断与循环语句
+* if-else if-elseif-else
+* while do-while for
