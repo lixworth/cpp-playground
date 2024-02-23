@@ -1,5 +1,5 @@
 /*
- * Created by LixWorth on $%Y%$/$%M%$/$%D%$ $%h%$:$%m%$
+ * Created by LixWorth on 2024/02/23 16:05
  * Github: https://github.com/lixworth/
  * Website: https://blog.lix.moe/
  * Contact: lixworth@outlook.com
@@ -14,13 +14,15 @@ using namespace std;
 using ll = long long;
 
 void solve() {
-    cout << "Hello World" << endl;
+   double p;
+   cin >> p;
+   cout << (1-p)*(1-p)*p*p << endl;
 }
 
 int main() {
     FAST_IO;
     int T = 1;
-    cin >> T;
+//    cin >> T;
     while (T--) solve();
     return 0;
 }
