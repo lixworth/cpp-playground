@@ -11,5 +11,10 @@ using namespace std;
 int main(){
     vector<int> a({1,2,3,4,5,6,7,9,10});
 
+    cout << a.front() << " " << a.back() << endl;
+
+    a.push_back(11); // 再最后加一个元素 O(1)
+    a.pop_back(); // 删除最后一个元素 O(1)
+
     return 0;
 }

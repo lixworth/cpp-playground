@@ -16,8 +16,14 @@
 
 ### 复杂度分析
 
+<img src="//image.itbaima.cn/markdown/2022/07/09/Tr6jI5uPzy2NeDd.png" alt="o"/>
 ### 二分搜索 `binary_search.cpp`
+[https://www.itbaima.cn/document/8a046ps2e4w6k4py](https://www.itbaima.cn/document/8a046ps2e4w6k4py)
 
 ## 线性表 LinearList
 * 顺序表 SequenceList `sequence_list.c`
-* 链表 LinkedList `linked_list.c`
+  * 插入、删除 需要向前或者向后操作 时间复杂度 O(n)
+  * 获取元素直接下标访问 O(1)
+* 单链表 LinkedList `linked_list.c`
+  * 插入、删除 需要从头循环寻找 O(n) 但是优于 顺序表
+  * 获取元素需要从头顺序访问 O(n) 不支持随机访问
