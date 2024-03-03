@@ -4,6 +4,7 @@
 * https://www.bilibili.com/video/BV13W4y127Ey/
 * https://www.hello-algo.com/chapter_data_structure/ 
 * https://dsa.cs.tsinghua.edu.cn/~deng/ds/dsacpp/
+* https://www.itbaima.cn/document/8a046ps2e4w6k4py
 * 数据结构与算法（C语言版）清华大学出版社 霍利、董靓瑜、郑巍、李静
 
 ## 绪论
@@ -15,3 +16,8 @@
 
 ### 复杂度分析
 
+### 二分搜索 `binary_search.cpp`
+
+## 线性表 LinearList
+* 顺序表 SequenceList `sequence_list.c`
+* 链表 LinkedList `linked_list.c`
