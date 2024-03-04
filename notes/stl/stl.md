@@ -55,6 +55,34 @@ v1.push_back(11); // 再最后加一个元素 O(1)
 v1.pop_back(); // 删除最后一个元素 O(1)
 ```
 
-### Array 数组 - C数组的封装
+### 容器适配器: **栈与队列**
+#### 栈/堆栈/Stack `std::stack` 是一种遵循 **先入后出** 逻辑的线性数据结构
+仅支持查询或删除最后一个加入的元素（栈顶元素），不支持随机访问，且为了保证数据的严格有序性，不支持迭代器。
+<img src="//www.hello-algo.com/chapter_stack_and_queue/stack.assets/stack_operations.png" alt="1"/>
 
+```c++
+int main() {
+    // std::stack<TypeName> s;  // 使用默认底层容器 deque，数据类型为 TypeName
+    // std::stack<TypeName, Container> s;  // 使用 Container 作为底层容器
+    // std::stack<TypeName> s2(s1);        // 将 s1 复制一份用于构造 s2
+    
+    stack<int> stack; // 初始化
+    cout << stack.empty() << endl; // 询问容器是否为空 1
+
+    for (int i = 1; i <= 100; ++i) {
+        stack.push(i); // 向栈中插入元素 i
+    }
+
+    cout << stack.top() << endl; // 访问栈顶元素 100 （如果栈为空，此处会出错）
+    cout << stack.size() << endl; // 查询容器中的元素数量 100
+
+    stack.pop(); // 删除栈顶元素
+    cout << stack.top() << endl; // 99
+
+    cout << stack.size() << endl; // 查询容器中的元素数量 99
+
+    cout << stack.empty() << endl; // 询问容器是否为空 0
+    return 0;
+}
+```
 ## STL 算法库 `<algorithm>`
