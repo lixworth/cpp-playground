@@ -56,9 +56,10 @@ v1.pop_back(); // 删除最后一个元素 O(1)
 ```
 
 ### 容器适配器: **栈与队列**
-#### 栈/堆栈/Stack `std::stack` 是一种遵循 **先入后出** 逻辑的线性数据结构
+* 栈/堆栈/Stack `std::stack` 
+
+是一种遵循 **先入后出** 逻辑的线性数据结构。
 仅支持查询或删除最后一个加入的元素（栈顶元素），不支持随机访问，且为了保证数据的严格有序性，不支持迭代器。
-<img src="//www.hello-algo.com/chapter_stack_and_queue/stack.assets/stack_operations.png" alt="1"/>
 
 ```c++
 int main() {
@@ -85,4 +86,30 @@ int main() {
     return 0;
 }
 ```
+* 队列 Queue 是一种遵循先入先出规则的线性数据结构。
+顾名思义，队列模拟了排队现象，即新来的人不断加入队列尾部，而位于队列头部的人逐个离开。
+```c++
+int main() {
+//    std::queue<TypeName> q;  // 使用默认底层容器 deque，数据类型为 TypeName
+//    std::queue<TypeName, Container> q;  // 使用 Container 作为底层容器
+//    std::queue<TypeName> q2(q1);  // 将 s1 复制一份用于构造 q2   
+    
+    queue<int> queue;
+    cout << queue.empty() << endl; // true
+
+    for (int i = 1; i <= 100 ; ++i) {
+        queue.push(i);
+    }
+
+    cout << queue.front() << endl; // 1
+    queue.pop(); // 出队
+
+    cout << queue.front() << endl; // 2
+    cout << queue.size() << endl; // 99
+
+    cout << queue.empty() << endl; // false
+    return 0;
+}
+```
+
 ## STL 算法库 `<algorithm>`

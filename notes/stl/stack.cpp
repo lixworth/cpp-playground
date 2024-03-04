@@ -6,6 +6,8 @@
 
 using namespace std;
 
+// https://www.hello-algo.com/chapter_stack_and_queue/stack/#513
+// https://oi.wiki/lang/csl/container-adapter/#%E6%A0%88
 int main() {
     stack<int> stack;
 
