@@ -13,23 +13,33 @@ using namespace std;
 
 using ll = long long;
 
-void dfs(int* data,int n,int m,int status){ // win+3 / fai+0 / normal a+1
-    if(status == 0) {
-        data[n] += 1;
-        data[m] += 1;
-        dfs(data,n,m,1);
-        dfs(data,n,m,2 );
+int n, m;
+int a[100],b[100],c[100],re[100];
+
+
+void calc(){
+
+}
+
+void dfs(int dep){
+    if(dep > m){
+        calc();
+        return;
+    }
+
+    for (int i = 1; i <= 3; ++i) {
+        re[dep] =i;
     }
 }
 
 void solve() {
-    int n, m;
     cin >> n >> m;
-    int map[n];
-    for (int i = 1; i <= n; i++) cin >> map[i];
-    while (m--){
-        dfs(map,n,m,0);
+    for (int i = 1; i <= n; i++) cin >> a[i];
+    for (int i = 1; i <= m; ++i) {
+        cin >> b[i] >> c[i];
     }
+
+    dfs(1);
 }
 
 int main() {
