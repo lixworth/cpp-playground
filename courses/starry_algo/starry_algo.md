@@ -11,3 +11,9 @@
 
 ## 01 前缀和与差分
 
+### 前缀和数组 
+[https://www.starrycoding.com/problem/7](https://www.starrycoding.com/problem/7)
+
+存储前n项和，然后通过不同前n项和相互加减求出所需范围（一次计算）。
+
+### 差分数组
