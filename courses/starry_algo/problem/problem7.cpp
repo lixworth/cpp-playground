@@ -18,6 +18,7 @@ int n,q;
 ll map[N], prefix[N]; // 全部数字、前缀和
 int l,r;
 
+// https://www.starrycoding.com/problem/7
 void solve() {
     cin >> n >> q;
     for (int i = 1; i <= n; ++i) cin >> map[i];
