@@ -4,8 +4,8 @@ cmake-build-debug/
 *.out
 *.s
 build/
-*/.cph/
-*/.cph
 */.DS_Store
 .DS_Store
 *.bin
+*.prob
+*/.cph
