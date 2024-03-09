@@ -14,9 +14,9 @@ using namespace std;
 using ll = long long;
 
 const int N = 1e5 + 9;
-int n,q;
+int n, q;
 ll map[N], prefix[N]; // 全部数字、前缀和
-int l,r;
+int l, r;
 
 // https://www.starrycoding.com/problem/7
 void solve() {

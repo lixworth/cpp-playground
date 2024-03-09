@@ -10,3 +10,4 @@ build/
 *.prob
 */.cph
 make/
+.autocp/
