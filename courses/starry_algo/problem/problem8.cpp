@@ -1,5 +1,5 @@
 /*
- * Created by LixWorth on 2024/03/08 20:25
+ * Created by LixWorth on 2024/03/10 17:44
  * Github: https://github.com/lixworth/
  * Website: https://blog.lix.moe/
  * Contact: lixworth@outlook.com
@@ -13,28 +13,35 @@ using namespace std;
 
 using ll = long long;
 
-const int N = 1e5 + 9;
-int n, q;
-ll map[N], prefix[N]; // 全部数字、前缀和
-int l, r;
+const int N = 1e5;
+int n, p, q;
+int map[N], diff[N], prefix[N];
 
-// https://www.starrycoding.com/problem/7
 void solve() {
-    cin >> n >> q;
+    cin >> n >> p >> q;
     for (int i = 1; i <= n; ++i) cin >> map[i];
+    for (int i = 1; i <= n; ++i) diff[i] = map[i] - map[i - 1];
+
+    while (p--) {
+        int l, r, x;
+        cin >> l >> r >> x;
+        diff[l] += x, diff[r + 1] -= x;
+    }
+
+    for (int i = 1; i <= n; ++i) map[i] = map[i - 1] + diff[i];
     for (int i = 1; i <= n; ++i) prefix[i] = prefix[i - 1] + map[i];
 
     while (q--) {
+        int l, r;
         cin >> l >> r;
         cout << prefix[r] - prefix[l - 1] << endl;
-        // 范围 l-r 用 1-r 之后减去 1-(l-1) 的和
     }
 }
 
 int main() {
     FAST_IO;
     int T = 1;
-    cin >> T;
+//    cin >> T;
     while (T--) solve();
     return 0;
 }

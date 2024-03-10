@@ -10,10 +10,13 @@
 * `for(int i = 0;i < n; ++i) cin >> a[i];` 让 输入io 与 计算 分开，提高微乎其微的效率
 
 ## 01 前缀和与差分
+[https://oi-wiki.org/basic/prefix-sum/](https://oi-wiki.org/basic/prefix-sum/)
 
 ### 前缀和数组 
 [https://www.starrycoding.com/problem/7](https://www.starrycoding.com/problem/7)
+![img.png](img.png)
 
 存储前n项和，然后通过不同前n项和相互加减求出所需范围（一次计算）。
 
 ### 差分数组
+存储
