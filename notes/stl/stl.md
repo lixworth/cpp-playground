@@ -54,6 +54,18 @@ v1.back(); // 结尾的元素 10 位于 v1.end() 之前
 v1.push_back(11); // 再最后加一个元素 O(1)
 v1.pop_back(); // 删除最后一个元素 O(1)
 ```
+#### deque 双端队列, list 链表
+### 关联式容器
+#### set 集合 
+* 不含有重复元素
+* 重复元素可以用 multiset
+#### map 集合
+```c++
+map<Key, T> yourMap;
+
+// 遍历
+for (auto item : yourMap) cout << item << endl;
+```
 
 ### 容器适配器: **栈与队列**
 * 栈/堆栈/Stack `std::stack` 
@@ -111,5 +123,4 @@ int main() {
     return 0;
 }
 ```
-
 ## STL 算法库 `<algorithm>`

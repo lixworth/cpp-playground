@@ -6,16 +6,15 @@
 
 using namespace std;
 
-int main(){
+int main() {
     deque<int> deque;
 
-
     for (int i = 0; i < 100; ++i) {
-        if(i%2 == 0) deque.push_back(i);
+        if (i % 2 == 0) deque.push_back(i);
         else deque.push_front(i);
     }
 
-    for (int i : deque) {
+    for (int i: deque) {
         cout << i << " ";
     }
     cout << "\n";
