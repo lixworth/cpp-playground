@@ -17,20 +17,22 @@ int cnt[10];
 
 void solve() {
     for (int i = 0; i <= 9; ++i) cnt[i] = 2021;
-
     ll result = 0;
-    for (ll i = 1; i <= 1e20; ++i) {
+    bool run = true;
+    ll i = 1;
+    while (run) {
         ll tmp = i;
-        while (tmp > 0) {
-            cnt[tmp % 10]--;
-            if (cnt[tmp % 10] < 0) {
-                break;
+        while (tmp) {
+            if (cnt[tmp % 10] >= 0) {
+                cnt[tmp % 10]--;
+            } else {
+                run = false;
             }
             tmp /= 10;
         }
         result = i;
+        i++;
     }
-
     cout << result << endl;
 }
 
