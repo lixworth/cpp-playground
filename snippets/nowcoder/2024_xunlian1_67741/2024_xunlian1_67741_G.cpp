@@ -13,13 +13,13 @@ using namespace std;
 typedef long long ll;
 
 void solve() {
-    int n,m;
+    int n, m;
     cin >> n >> m;
-    int a[n],b[n];
+    int a[n], b[n];
     for (int i = 0; i < n; ++i) {
         cin >> a[i] >> b[i];
     }
-
+    
 }
 
 int main() {
