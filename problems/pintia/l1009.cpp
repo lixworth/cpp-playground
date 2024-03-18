@@ -4,7 +4,7 @@
  * Website: https://blog.lix.moe/
  * Contact: lixworth@outlook.com
 **/
-#include <bits/stdc++.h>
+//#include <bits/stdc++.h>
 #include <iostream>
 #include <numeric>
 //#include <algorithm>
