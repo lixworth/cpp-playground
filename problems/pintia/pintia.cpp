@@ -21,7 +21,6 @@ void solve() {
     for (int i = 0; i < n; ++i) {
         string input;
         cin >> input;
-            
     }
 }
 
