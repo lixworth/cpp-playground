@@ -21,7 +21,7 @@ void solve() {
     ll sum = 0;
     for (int i = a, count = 1; i <= b; ++i, count++) {
         sum += i;
-        if (count % 5 == 0) printf("%5d\n", i);
+        if (count % 5 == 0 && i != b) printf("%5d\n", i);
         else printf("%5d", i);
     }
 

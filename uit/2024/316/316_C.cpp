@@ -8,6 +8,7 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <cmath>
 
 #define FAST_IO std::ios::sync_with_stdio(false);std::cin.tie(nullptr);std::cout.tie(nullptr);
 
@@ -31,7 +32,7 @@ void solve() {
     }
 
     if (map[0] != map[1]) {
-        if (map[0] == map[3]) {
+        if (map[0] == map[2]) {
             cout << 2 << endl;
         } else {
             cout << 1 << endl;

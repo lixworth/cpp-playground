@@ -20,7 +20,7 @@ void solve() {
 int main() {
     FAST_IO;
     int T = 1;
-//    cin >> T;
+    cin >> T;
     while (T--) solve();
     return 0;
 }

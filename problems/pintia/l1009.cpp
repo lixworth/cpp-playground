@@ -23,27 +23,27 @@ void solve() {
     for (int i = 0; i < n; ++i) {
         string input;
         cin >> input;
-        int sp = input.find("/"); // 2
+        ll sp = input.find("/"); // 2
         a[i] = stoi(input.substr(0, sp));
         b[i] = stoi(input.substr(sp + 1, input.size() - sp));
     }
 
-    int min = 1;
+    ll min = 1;
     for (int i = 0; i < n; ++i) {
         min = lcm(min, b[i]);
     }
-    int result = 0;
+    ll result = 0;
     for (int i = 0; i < n; ++i) {
         result += a[i] * (min / b[i]);
     }
 
-    int d = result / min;
-    int fz = result - d * min;
-    int f_gcd = gcd(fz, min);
+    ll d = result / min;
+    ll fz = result - d * min;
+    ll f_gcd = gcd(fz, min);
     if (d != 0) {
         cout << d << " ";
     }
-    cout << fz / f_gcd << "/" << min / f_gcd << endl;
+    if (fz / f_gcd != 0) cout << fz / f_gcd << "/" << min / f_gcd << endl;
 }
 
 int main() {
