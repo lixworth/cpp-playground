@@ -14,21 +14,21 @@ using namespace std;
 using ll = long long;
 
 int n, m;
-int a[100],b[100],c[100],re[100];
+int a[100], b[100], c[100], re[100];
 
 
-void calc(){
+void calc() {
 
 }
 
-void dfs(int dep){
-    if(dep > m){
+void dfs(int dep) {
+    if (dep > m) {
         calc();
         return;
     }
 
     for (int i = 1; i <= 3; ++i) {
-        re[dep] =i;
+        re[dep] = i;
     }
 }
 

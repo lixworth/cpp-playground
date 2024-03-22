@@ -8,42 +8,51 @@
 #include <iostream>
 #include <numeric>
 //#include <algorithm>
+#include <cmath>
+
 #define FAST_IO std::ios::sync_with_stdio(false);std::cin.tie(nullptr);std::cout.tie(nullptr);
 
 using namespace std;
 
 using ll = long long;
 
-int n;
-
-ll a[10000], b[10000];
+ll n;
+ll a = 0, b = 1;
+ll d; // 整数部分
 
 void solve() {
     cin >> n;
-    for (int i = 0; i < n; ++i) {
+    for (ll i = 0; i < n; ++i) {
         string input;
         cin >> input;
-        ll sp = input.find("/"); // 2
-        a[i] = stoi(input.substr(0, sp));
-        b[i] = stoi(input.substr(sp + 1, input.size() - sp));
+        ll sp = input.find('/'); // 2
+        ll fz = 0, fm = 0;
+        fz = stoi(input.substr(0, sp));
+        fm = stoi(input.substr(sp + 1, input.size() - sp));
+
+        ll new_fm = lcm(abs(fm), abs(b));
+        a *= new_fm / b;
+        a += fz * (new_fm / fm);
+        b = new_fm;
+
+        if (a > b) {
+            d += a / b;
+            a = a % b;
+        } else if (a == b) {
+            a = 0, b = 1;
+            d++;
+        }
     }
 
-    ll min = 1;
-    for (int i = 0; i < n; ++i) {
-        min = lcm(min, b[i]);
-    }
-    ll result = 0;
-    for (int i = 0; i < n; ++i) {
-        result += a[i] * (min / b[i]);
-    }
+    ll new_gcd = gcd(abs(a), abs(b));
 
-    ll d = result / min;
-    ll fz = result - d * min;
-    ll f_gcd = gcd(fz, min);
-    if (d != 0) {
-        cout << d << " ";
+    if (a == 0 && d == 0) {
+        cout << 0 << endl;
+    } else {
+        if (d != 0) cout << d;
+        if (d != 0 && a != 0) cout << " ";
+        if (a != 0) cout << a / new_gcd << "/" << b / new_gcd << endl;
     }
-    if (fz / f_gcd != 0) cout << fz / f_gcd << "/" << min / f_gcd << endl;
 }
 
 int main() {

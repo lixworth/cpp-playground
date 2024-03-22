@@ -8,6 +8,7 @@
 #include <iostream>
 //#include <algorithm>
 #include <sstream>
+
 #define FAST_IO std::ios::sync_with_stdio(false);std::cin.tie(nullptr);std::cout.tie(nullptr);
 
 using namespace std;
@@ -16,7 +17,7 @@ using ll = long long;
 
 const int N = 10010;
 
-int m,n;
+int m, n;
 int map[N];
 
 void solve() {
@@ -29,7 +30,7 @@ void solve() {
         if (map[i] > 1) {
             n = i;
         }
-        if (map[i-1] != 0 && map[i] == 0 && map[i+1]!= 0 && m== 0) m = i;
+        if (map[i - 1] != 0 && map[i] == 0 && map[i + 1] != 0 && m == 0) m = i;
         if (m != 0 && n != 0) break;
     }
 

@@ -8,10 +8,10 @@
 using namespace std;
 
 int n;
-const int N = 1e6+10;
+const int N = 1e6 + 10;
 int map[N];
 
-void quick_sort(int q[],int l,int r) {
+void quick_sort(int q[], int l, int r) {
     if (l == r) return;
 
     int x = q[(l + r) >> 1], i = l - 1, j = r + 1;
