@@ -20,16 +20,25 @@ ll n;
 ll a = 0, b = 1;
 ll d; // 整数部分
 
+bool isPrime(ll x) {
+    if (x == 1) {
+        return false;
+    }
+    for (int i = 2; i * i <= x; i++) {
+        if (x % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
 void solve() {
     cin >> n;
     for (ll i = 0; i < n; ++i) {
         string input;
         cin >> input;
-        ll sp = input.find('/'); // 2
         ll fz = 0, fm = 0;
-        fz = stoi(input.substr(0, sp));
-        fm = stoi(input.substr(sp + 1, input.size() - sp));
-
+        scanf("%lld/%lld", &fz, &fm);
         ll new_fm = lcm(abs(fm), abs(b));
         a *= new_fm / b;
         a += fz * (new_fm / fm);
