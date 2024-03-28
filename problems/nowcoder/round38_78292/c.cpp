@@ -19,31 +19,19 @@ string str;
 void solve() {
     cin >> n >> k;
     char start = 'a';
-    char end = 'z';
-    int num = 1;
-    int count = 0;
-    while (true) {
-        if (num <= k) {
-            num += (num + 1);
-            count++;
-        } else {
-            break;
-        }
-    }
-    for (int i = 1; i <= n; ++i) {
-        if (count != 0 && i >= 1 && i <= count) {
-            str += start;
-        } else if (extra != 0 && i >= n - extra) {
-            str += start;
-        } else {
-            start++;
-            if (start > end) {
-                start = 'a';
-            }
-            str += start;
-        }
-    }
+    for (int i = 0; i < k; ++i) {
+        str += start;
+        str += start;
 
+        if (start == 'z') start = 'a';
+        else start++;
+    }
+    for (int i = 0; i < n - k * 2; ++i) {
+        str += start;
+
+        if (start == 'z') start = 'a';
+        else start++;
+    }
     cout << str << endl;
 }
 

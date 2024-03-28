@@ -13,10 +13,12 @@ using namespace std;
 
 using ll = long long;
 
-int a, b, m; // 第一次安装、第二次安装的发射频率，以及烟花在天空中可见的时间。
+ll a, b, m; // 第一次安装、第二次安装的发射频率，以及烟花在天空中可见的时间。
 
 void solve() {
     cin >> a >> b >> m;
+
+    cout << 2 + m / a + m / b << endl;
 }
 
 int main() {

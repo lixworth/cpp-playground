@@ -1,5 +1,5 @@
 /*
- * Created by LixWorth on $%Y%$/$%M%$/$%D%$ $%h%$:$%m%$
+ * Created by LixWorth on 2024/03/26 20:20
  * Github: https://github.com/lixworth/
  * Website: https://blog.lix.moe/
  * Contact: lixworth@outlook.com
@@ -13,8 +13,16 @@
 using std::cin, std::cout;
 using ll = long long;
 
+ll gcd(ll a, ll b) {
+    return b == 0 ? a : gcd(b, a % b);
+}
+
+ll lcm(ll a, ll b) {
+    return a / gcd(a, b) * b;
+}
+
 void solve() {
-    cout << "Hello World" << endl;
+    
 }
 
 int main() {
