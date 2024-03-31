@@ -1,5 +1,5 @@
 /*
- * Created by LixWorth on 2024/03/30 14:18
+ * Created by LixWorth on 2024/03/28 19:22
  * Github: https://github.com/lixworth/
  * Website: https://blog.lix.moe/
  * Contact: lixworth@outlook.com
@@ -13,19 +13,19 @@
 using std::cin, std::cout;
 using ll = long long;
 
-const int N = 1e5 + 9;
-int n, q, l, r, map[N], prefix[N];
+const int N = 1e5 + 10;
+int n, k, ans;
+
+int map[N], prefix[N];
 
 void solve() {
-    cin >> n;
-    for (int i = 1; i <= n; ++i) cin >> map[i];
-    for (int i = 1; i <= n; ++i) prefix[i] = prefix[i - 1] + map[i];
-
-    cin >> q;
-    while (q--) {
-        cin >> l >> r;
-        cout << prefix[r] - prefix[l - 1] << endl;
+    cin >> n >> k;
+    for (int i = 1; i < n; ++i) cin >> map[i];
+    for (int i = 0; i < n; ++i) {
+        prefix[i] = prefix[i - 1] + map[i];
+        if (prefix[i] % k == 0) ans++;
     }
+    cout << ans << endl;
 }
 
 int main() {

@@ -1,5 +1,5 @@
 /*
- * Created by LixWorth on 2024/03/30 14:18
+ * Created by LixWorth on 2024/03/28 22:45
  * Github: https://github.com/lixworth/
  * Website: https://blog.lix.moe/
  * Contact: lixworth@outlook.com
@@ -13,25 +13,22 @@
 using std::cin, std::cout;
 using ll = long long;
 
-const int N = 1e5 + 9;
-int n, q, l, r, map[N], prefix[N];
-
 void solve() {
-    cin >> n;
-    for (int i = 1; i <= n; ++i) cin >> map[i];
-    for (int i = 1; i <= n; ++i) prefix[i] = prefix[i - 1] + map[i];
-
-    cin >> q;
-    while (q--) {
-        cin >> l >> r;
-        cout << prefix[r] - prefix[l - 1] << endl;
+    int a, b, c;
+    cin >> a >> b >> c;
+    if (a < b && b < c && a < c) {
+        cout << "STAIR" << endl;
+    } else if (a < b && b > c) {
+        cout << "PEAK" << endl;
+    } else {
+        cout << "NONE" << endl;
     }
 }
 
 int main() {
     FAST_IO;
     int T = 1;
-//    cin >> T;
+    cin >> T;
     while (T--) solve();
     return 0;
 }

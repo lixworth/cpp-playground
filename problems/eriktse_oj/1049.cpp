@@ -14,8 +14,10 @@ using std::cin, std::cout;
 using ll = long long;
 
 const int N = 1e5 + 9;
-int n, q, l, r, map[N], prefix[N];
+int n, q, l, r, map[N];
+ll prefix[N]; // 存储前缀和
 
+// https://oj.eriktse.com/problem.php?id=1049
 void solve() {
     cin >> n;
     for (int i = 1; i <= n; ++i) cin >> map[i];

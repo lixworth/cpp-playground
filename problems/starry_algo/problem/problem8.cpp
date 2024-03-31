@@ -15,7 +15,7 @@ using ll = long long;
 
 const int N = 1e5;
 int n, p, q;
-int map[N], diff[N], prefix[N];
+ll map[N], diff[N], prefix[N];
 
 void solve() {
     cin >> n >> p >> q;
