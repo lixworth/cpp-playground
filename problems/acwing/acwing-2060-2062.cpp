@@ -1,5 +1,5 @@
 /*
- * Created by LixWorth on 2024/04/11 20:40
+ * Created by LixWorth on 2024/04/10 23:34
  * Github: https://github.com/lixworth/
  * Website: https://blog.lix.moe/
  * Contact: lixworth@outlook.com
@@ -13,8 +13,23 @@
 using std::cin, std::cout;
 using ll = long long;
 
+std::string map[100];
+
+void dfs(int x, int y) {
+
+}
+
 void solve() {
-    cout << "Hello World";
+    int n, m;
+    cin >> n >> m;
+
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            cin >> map[n];
+        }
+    }
+
+
 }
 
 int main() {
