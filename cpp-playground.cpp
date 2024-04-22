@@ -1,40 +1,26 @@
+/*
+ * Created by LixWorth on 2024/04/22 15:50
+ * Github: https://github.com/lixworth/
+ * Website: https://blog.lix.moe/
+ * Contact: lixworth@outlook.com
+**/
 #include <bits/stdc++.h>
 
-#define endl "\n";
+#define FAST_IO std::ios::sync_with_stdio(false);std::cin.tie(nullptr);std::cout.tie(nullptr);
+#define endl "\n"
 
+//using namespace std;
 using std::cin, std::cout;
+using ll = long long;
 
-const int N = 1e5 + 9;
-int map[N];
-std::vector<int> p, q;
-int np = 1, nq = 1;
+void solve() {
+    cout << "Hello World" << endl;
+}
 
 int main() {
-    std::ios::sync_with_stdio(false), std::cin.tie(nullptr), std::cout.tie(nullptr);
-
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) cin >> map[i];
-
-    for (int i = 0; i < n; i++) {
-        if (std::find(p.begin(), p.end(), map[i]) != p.end()) {
-            q.push_back(map[i]);
-            if (nq == map[i]) nq++;
-            p.push_back(0);
-        } else {
-            p.push_back(map[i]);
-            q.push_back(0);
-            if (np == map[i]) np++;
-        }
-    }
-    for (int i = 0; i < n; i++) {
-        if (p[i] == 0) cout << np++ << " ";
-        else cout << p[i] << " ";
-    }
-    cout << endl;
-    for (int i = 0; i < n; i++) {
-        if (q[i] == 0) cout << nq++ << " ";
-        else cout << q[i] << " ";
-    }
+    FAST_IO;
+    int T = 1;
+//    cin >> T;
+    while (T--) solve();
     return 0;
 }
