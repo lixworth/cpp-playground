@@ -14,12 +14,16 @@ using std::cin, std::cout;
 using ll = long long;
 
 void solve() {
-    int a, b, c, d;
-    cin >> a >> b >> c >> d;
-    int mma = std::min(a, b), mmb = std::max(a, b);
-    int mmc = std::min(c, d), mmd = std::max(c, d);
+    std::string input;
+    int a1, a2, b1, b2;
+    cin >> a1 >> a2 >> b1 >> b2;
+    for (int i = 1; i <= 12; ++i) {
+        if (i == a1 || i == a2) input += "a";
+        if (i == b1 || i == b2) input += "b";
+    }
 
-    cout << mma - mmc << " " << mmb - mmd << endl;
+    if (input == "abab" || input == "baba") cout << "YES" << endl;
+    else cout << "NO" << endl;
 }
 
 int main() {
