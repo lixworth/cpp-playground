@@ -12,7 +12,8 @@ foreach(SOURCE ${SOURCE_FILES})
     set(TARGET_NAME "${DIR_PATH}_${FILE_NAME}")
     string(REPLACE "${CMAKE_CURRENT_SOURCE_DIR}/" "" TARGET_NAME ${TARGET_NAME})
     string(REPLACE "/" "_" TARGET_NAME ${TARGET_NAME})
+    string(REPLACE "\\" "_" TARGET_NAME ${TARGET_NAME}) # for window
+    string(REPLACE ":" "_" TARGET_NAME ${TARGET_NAME}) # for window
 
     add_executable(${TARGET_NAME} ${SOURCE})
-    # 如果您有库需要链接，请在此处添加链接库的命令
 endforeach()
