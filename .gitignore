@@ -11,3 +11,4 @@ build/
 */.cph
 make/
 *.exe
+*.bin
