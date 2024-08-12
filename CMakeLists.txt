@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2 -Dzerol -Wall")
 
 file(GLOB_RECURSE SOURCE_FILES "*.c" "*.cpp")
-foreach(SOURCE ${SOURCE_FILES})
+foreach (SOURCE ${SOURCE_FILES})
     get_filename_component(FILE_NAME ${SOURCE} NAME)
     get_filename_component(DIR_PATH ${SOURCE} DIRECTORY)
 
@@ -14,6 +14,7 @@ foreach(SOURCE ${SOURCE_FILES})
     string(REPLACE "/" "_" TARGET_NAME ${TARGET_NAME})
     string(REPLACE "\\" "_" TARGET_NAME ${TARGET_NAME}) # for window
     string(REPLACE ":" "_" TARGET_NAME ${TARGET_NAME}) # for window
+    string(REPLACE " " "_" TARGET_NAME ${TARGET_NAME}) # for window
 
     add_executable(${TARGET_NAME} ${SOURCE})
-endforeach()
+endforeach ()
