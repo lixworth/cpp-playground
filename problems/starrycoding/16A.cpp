@@ -12,8 +12,19 @@
 using namespace std;
 using ll = long long;
 
+const int N = 1000;
+int arr[N];
+
 void solve() {
-    cout << "Hello World" << endl;
+    int n;
+    cin >> n;
+    for (int i = 1; i <= n; ++i) {
+        int x;
+        cin >> x;
+        arr[x] = i;
+    }
+    for (int i = 1; i <= n; ++i) cout << arr[i] << " ";
+    cout << endl;
 }
 
 int main() {
