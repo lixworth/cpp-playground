@@ -11,11 +11,7 @@
 using namespace std;
 using ll = long long;
 
-void solve() {
-    int n;
-    cin >> n;
-    while (n--) cout << "Hello World!" << endl;
-}
+void solve() { cout << "Hello World!" << endl; }
 
 int main() {
     IOS int tt = 1;
