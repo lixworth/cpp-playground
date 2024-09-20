@@ -12,3 +12,4 @@ build/
 make/
 *.exe
 *.bin
+.clang-format
