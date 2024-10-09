@@ -12,7 +12,7 @@ using namespace std;
 using ll = long long;
 
 const int N = 10000;
-int data[N];
+int hash_data[N];
 queue<int> mem;
 
 // https://www.luogu.com.cn/problem/P1540
@@ -24,13 +24,13 @@ void solve() {
     for (int i = 0; i < n; ++i) {
         int input;
         cin >> input;
-        if (data[input] == 0) {
+        if (hash_data[input] == 0) {
             cnt++;
             mem.push(input);
-            data[input] = 1;
+            hash_data[input] = 1;
         }
         if (mem.size() > m) {
-            data[mem.front()] = 0;
+            hash_data[mem.front()] = 0;
             mem.pop();
         }
     }
