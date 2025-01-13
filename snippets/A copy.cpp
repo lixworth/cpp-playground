@@ -11,20 +11,18 @@
 using namespace std;
 using ll = long long;
 
-ll l, d, o;
 void solve() {
-    int arr[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-
-    for (int i = 0; i <= 9; ++i) {
-        cout << arr[i] << " ";
-        if ((i + 1) % 5 == 0)
-            cout << "\n";
-    }
+    int n;
+    cin >> n;
+    if (n % 3 != 0)
+        cout << -1 << endl;
+    else
+        cout << n / 3 << " " << n / 3 << " " << n / 3 << endl;
 }
 
 int main() {
     IOS int tt = 1;
-    //    cin >> tt;
+    cin >> tt;
     while (tt--) solve();
     return 0;
 }

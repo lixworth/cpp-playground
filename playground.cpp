@@ -1,50 +1,66 @@
-<<<<<<< HEAD
-#include <bits/stdc++.h>
-
-std::string test1(int year) {
-    if (year % 400 == 0) {
-        return "leap year";
-    } else if (year % 4 == 0, year % 100 != 0) {
-        return "leap year";
-    } else {
-        return "not leap year";
-    }
-}
-
-std::string test2(int year) {
-    if (year % 400 == 0) {
-        return "leap year";
-    } else if (year % 4 == 0 && year % 100 != 0) {
-        return "leap year";
-    } else {
-        return "not leap year";
-    }
-}
-int main() {
-    for (int i = 2000; i < 3000; i++) {
-        if (test1(i).compare(test2(i)) != 0)
-            std::cout << i << "|" << test1(i) << "|" << test2(i) << std::endl;
-    }
-=======
-/*
- * Created by LixWorth
- * Github: https://github.com/lixworth/
- * Website: https://blog.lix.moe/
- * Contact: lixworth@outlook.com
- **/
-#include <bits/stdc++.h>
-#define endl "\n"
-#define IOS std::ios::sync_with_stdio(false), std::cin.tie(nullptr), std::cout.tie(nullptr);
+#include <climits>
+#include <iostream>
+#include <queue>
+#include <set>
+#include <vector>
 
 using namespace std;
-using ll = long long;
 
-void solve() { cout << "Hello World!" << endl; }
+int min_obstacles(int L, int S, int T, int M, const vector<int> &obstacles) {
+    // 将障碍物位置存储为集合，以便快速查找
+    set<int> obstacle_set(obstacles.begin(), obstacles.end());
+
+    // 队列元素为 (当前坐标, 已踩到的障碍物数量)
+    queue<pair<int, int>> q;
+    q.push({0, 0}); // 初始位置 0, 踩到的障碍物数量是 0
+
+    // visited 数组，记录最少踩到障碍物数量
+    vector<int> visited(L + 1, INT_MAX); // 初始时所有位置都未访问
+    visited[0] = 0; // 起点处障碍物数量为 0
+
+    while (!q.empty()) {
+        int current_position = q.front().first;
+        int current_obstacles = q.front().second;
+        q.pop();
+
+        // 如果当前的位置已经到达或超过 L，直接返回已踩的障碍物数量
+        if (current_position >= L) {
+            return current_obstacles;
+        }
+
+        // 对于每个步长 S 到 T
+        for (int step = S; step <= T; ++step) {
+            int next_position = current_position + step;
+            if (next_position > L) {
+                continue;
+            }
+
+            // 计算到达 next_position 时，是否踩到了障碍物
+            int next_obstacles = current_obstacles + (obstacle_set.count(next_position) > 0 ? 1 : 0);
+
+            // 如果没有访问过这个位置，或者踩到的障碍物更少，更新状态
+            if (next_obstacles < visited[next_position]) {
+                visited[next_position] = next_obstacles;
+                q.push({next_position, next_obstacles});
+            }
+        }
+    }
+
+    // 代码应确保一定能到达 L，因此不需要额外返回值
+    return -1; // 如果无法到达L，返回 -1 (理论上这个不会发生)
+}
 
 int main() {
-    IOS int tt = 1;
-    cin >> tt;
-    while (tt--) solve();
+    int L, S, T, M;
+    cin >> L; // 植物园长度
+    cin >> S >> T >> M; // 步长区间和障碍物个数
+    vector<int> obstacles(M);
+    for (int i = 0; i < M; ++i) {
+        cin >> obstacles[i]; // 障碍物的位置
+    }
+
+    // 计算并输出结果
+    cout << min_obstacles(L, S, T, M, obstacles) << endl;
+
     return 0;
->>>>>>> 2591bb1fc9d6a562d743c930998d808c56caca9b
 }
