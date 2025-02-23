@@ -11,11 +11,18 @@
 using namespace std;
 using ll = long long;
 
-void solve() { cout << "Hello World!" << endl; }
+void solve() {
+    string input;
+    cin >> input;
+    if ((input[input.size() - 1] - 48) % 2 == 0)
+        cout << "No" << endl;
+    else
+        cout << "Yes" << endl;
+}
 
 int main() {
     IOS int tt = 1;
-    cin >> tt;
+    // cin >> tt;
     while (tt--) solve();
     return 0;
 }

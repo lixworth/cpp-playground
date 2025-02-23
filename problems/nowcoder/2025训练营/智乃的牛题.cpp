@@ -11,11 +11,22 @@
 using namespace std;
 using ll = long long;
 
-void solve() { cout << "Hello World!" << endl; }
+int arr[10000];
+void solve() {
+    string input;
+    cin >> input;
+    for (auto &item: input) { arr[item]++; }
+
+    if (arr[99] == 1 && arr[100] == 1 && arr[101] == 1 && arr[110] == 1 && arr[111] == 2 && arr[114] == 1 &&
+        arr[119] == 1)
+        cout << "happy new year" << endl;
+    else
+        cout << "I AK IOI" << endl;
+}
 
 int main() {
     IOS int tt = 1;
-    cin >> tt;
+    // cin >> tt;
     while (tt--) solve();
     return 0;
 }

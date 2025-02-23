@@ -11,7 +11,11 @@
 using namespace std;
 using ll = long long;
 
-void solve() { cout << "Hello World!" << endl; }
+void solve() {
+    ll r, l;
+    cin >> l >> r;
+    cout << r - l + 1 << endl;
+}
 
 int main() {
     IOS int tt = 1;

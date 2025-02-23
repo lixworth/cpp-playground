@@ -11,11 +11,20 @@
 using namespace std;
 using ll = long long;
 
-void solve() { cout << "Hello World!" << endl; }
+void solve() {
+    int input;
+    while (cin >> input) {
+        if (input != 1 && input != 2 && input != 3 && input != 5 && input != 6) {
+            cout << "NO" << endl;
+            return;
+        }
+    }
+    cout << "YES" << endl;
+}
 
 int main() {
     IOS int tt = 1;
-    cin >> tt;
+    // cin >> tt;
     while (tt--) solve();
     return 0;
 }

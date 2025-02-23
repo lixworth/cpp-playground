@@ -11,7 +11,21 @@
 using namespace std;
 using ll = long long;
 
-void solve() { cout << "Hello World!" << endl; }
+void solve() {
+    ll n, m;
+    cin >> n >> m;
+
+    ll cnt = 1;
+    while (true) {
+        if (abs(pow(m, cnt + 1) - n) < abs(pow(m, cnt) - n)) {
+            cnt++;
+        } else {
+            break;
+        }
+    }
+
+    cout << cnt << endl;
+}
 
 int main() {
     IOS int tt = 1;
