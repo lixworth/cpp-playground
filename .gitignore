@@ -13,3 +13,4 @@ make/
 *.exe
 *.bin
 .clang-format
+.autocp
